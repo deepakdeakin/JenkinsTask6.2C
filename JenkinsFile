@@ -16,12 +16,12 @@ pipeline {
                 success {
                     mail to: "deepak@webimor.com",
                     subject: "Build Success Status Email",
-                    body: "Build log attached!",
+                    body: "Build log attached!"
                 }
                 failure {
                     mail to: "deepak@webimor.com",
                     subject: "Build Failure Status Email",
-                    body: "Build log attached!",
+                    body: "Build log attached!"
                 }
             }
         }
@@ -40,12 +40,12 @@ pipeline {
                 success {
                     mail to: "deepak@webimor.com",
                     subject: "Build Success Status Email",
-                    body: "Build log attached!",
+                    body: "Build log attached!"
                 }
                 failure {
                     mail to: "deepak@webimor.com",
                     subject: "Build Failure Status Email",
-                    body: "Build log attached!",
+                    body: "Build log attached!"
                 }
             }
         }
