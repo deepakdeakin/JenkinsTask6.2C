@@ -10,7 +10,7 @@ pipeline {
         
         stage('Unit and Integration Tests') {
             steps {
-                echo 'DevOps Tool: JUnits'
+                echo 'DevOps Tool: JUnit'
             }
             post {
                 success {  
