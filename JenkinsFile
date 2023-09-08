@@ -71,10 +71,10 @@ pipeline {
     
     post {
         success {
-            echo 'Sending Success Notification Email'
+            echo 'Sending Success Notification Emails'
         }
         failure {
-            echo 'Sending Failure Notification Email'
+            echo 'Sending Failure Notification Emails'
         }
     }
 }
