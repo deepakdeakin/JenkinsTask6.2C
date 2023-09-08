@@ -1,0 +1,80 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage('Build') {
+            steps {
+                echo 'DevOps Tool: Maven'
+            }
+        }
+        
+        stage('Unit and Integration Tests') {
+            steps {
+                echo 'DevOps Tool: JUnit'
+            }
+            post {
+                success {
+                    mail to: "deepak@webimor.com",
+                    subject: "Build Status Email",
+                    body: "Build log attached!"
+                }
+                failure {
+                    mail to: "deepak@webimor.com",
+                    subject: "Build Status Email",
+                    body: "Build log attached!"
+                }
+            }
+        }
+
+        stage('Code Analysis') {
+            steps {
+                echo 'DevOps Tool: SonarQube'
+            }
+        }
+
+        stage('Security Scan') {
+            steps {
+                echo 'DevOps Tool: OWASP ZAP'
+            }
+            post {
+                success {
+                    mail to: "deepak@webimor.com",
+                    subject: "Build Status Email",
+                    body: "Build log attached!"
+                }
+                failure {
+                     mail to: "deepak@webimor.com",
+                    subject: "Build Status Email",
+                    body: "Build log attached!"
+                }
+            }
+        }
+
+        stage('Deploy to Staging') {
+            steps {
+                echo 'DevOps Tool: AWS Elastic Beanstalk'
+            }
+        }
+
+        stage('Integration Tests on Staging') {
+            steps {
+                echo 'DevOps Tool: Selenium WebDriver'
+            }
+        }
+
+        stage('Deploy to Production') {
+            steps {
+                echo 'DevOps Tool: Ansible'
+            }
+        }
+    }
+    
+    post {
+        success {
+            echo 'Sending Success Notification Email'
+        }
+        failure {
+            echo 'Sending Failure Notification Email'
+        }
+    }
+}
