@@ -13,17 +13,22 @@ pipeline {
                 echo 'DevOps Tool: JUnits'
             }
             post {
-                success {    
-                    mail to: "deepak@webimor.com",
-                    subject: "Build Success Status Email",
-                    body: "Build log attached!",
-                    emailext (attachLog : true)
+                success {  
+                emailext (
+                            to: "deepak@webimor.com",
+                            subject: "Build Success Status Email",
+                            body: "Build log attached!",
+                            attachLog: true
+                        )
+
                 }
                 failure {
-                   mail to: "deepak@webimor.com",
-                   subject: "Build Failure Status Email",
-                   body: "Build log attached!"
-                   emailext ( attachLog : true)
+                    emailext (
+                    to: "deepak@webimor.com",
+                    subject: "Build Failure Status Email",
+                    body: "Build log attached!",
+                    attachLog: true
+                        )
                 }
             }
         }
@@ -40,17 +45,21 @@ pipeline {
             }
             post {
                 success {
-                    mail to: "deepak@webimor.com",
-                    subject: "Build Success Status Email",
-                    body: "Build log attached!"
-                     emailext (attachLog : true)
+                    emailext (
+                            to: "deepak@webimor.com",
+                            subject: "Build Success Status Email",
+                            body: "Build log attached!",
+                            attachLog: true
+                        )
 
                 }
                 failure {
-                      mail to: "deepak@webimor.com",
-                      subject: "Build Failure Status Email",
-                      body: "Build log attached!"
-                     emailext (attachLog : true)
+                      emailext (
+                    to: "deepak@webimor.com",
+                    subject: "Build Failure Status Email",
+                    body: "Build log attached!",
+                    attachLog: true
+                        )
                 }
             }
         }
