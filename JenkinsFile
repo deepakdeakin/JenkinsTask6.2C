@@ -15,7 +15,6 @@ pipeline {
             post {
                 success {
                        
-                            attachLog: true,
                             body: "${currentBuild.result}: ${BUILD_URL}",
                             compressLog: true,
 
