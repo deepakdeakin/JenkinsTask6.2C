@@ -15,19 +15,15 @@ pipeline {
             post {
                 success {
                        
-                            body: "${currentBuild.result}: ${BUILD_URL}",
-                            compressLog: true,
-
-                            subject: "Build Notification: ${JOB_NAME}-Build# ${BUILD_NUMBER} ${currentBuild.result}",
-                           // to: 'deepak@Webimor.com'
-                   mail to: "deepak@webimor.com"
-                   //subject: "Build Success Status Email"
-                    //body: "Build log attached!"
+                           
+                   mail to: "deepak@webimor.com",
+                   subject: "Build Success Status Email",
+                   body: "Build log attached!"
                 }
                 failure {
-                    //mail to: "deepak@webimor.com",
-                   // subject: "Build Failure Status Email",
-                   // body: "Build log attached!"
+                    mail to: "deepak@webimor.com",
+                   subject: "Build Failure Status Email",
+                   body: "Build log attached!"
                 }
             }
         }
@@ -44,14 +40,14 @@ pipeline {
             }
             post {
                 success {
-                   // mail to: "deepak@webimor.com",
-                   // subject: "Build Success Status Email",
-                  //  body: "Build log attached!"
+                    mail to: "deepak@webimor.com",
+                    subject: "Build Success Status Email",
+                    body: "Build log attached!"
                 }
                 failure {
-                   // mail to: "deepak@webimor.com",
-                   // subject: "Build Failure Status Email",
-                   // body: "Build log attached!"
+                      mail to: "deepak@webimor.com",
+                      subject: "Build Failure Status Email",
+                      body: "Build log attached!"
                 }
             }
         }
