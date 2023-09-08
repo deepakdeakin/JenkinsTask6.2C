@@ -14,16 +14,14 @@ pipeline {
             }
             post {
                 success {
-                       
-                           
-                   mail to: "deepak@webimor.com",
-                   subject: "Build Success Status Email",
-                   body: "Build log attached!"
+                    emailext subject: "Build Success Status Email",
+                    body: "${currentBuild.fullDisplayName} has successfully built. Console Output:\n\n${currentBuild.rawBuild.getLog(1000)}",
+                    to: "deepak@webimor.com"
                 }
                 failure {
-                    mail to: "deepak@webimor.com",
-                   subject: "Build Failure Status Email",
-                   body: "Build log attached!"
+                    emailext subject: "Build Failure Status Email",
+                    body: "${currentBuild.fullDisplayName} has failed to build. Console Output:\n\n${currentBuild.rawBuild.getLog(1000)}",
+                    to: "deepak@webimor.com"
                 }
             }
         }
@@ -40,14 +38,14 @@ pipeline {
             }
             post {
                 success {
-                    mail to: "deepak@webimor.com",
-                    subject: "Build Success Status Email",
-                    body: "Build log attached!"
+                    emailext subject: "Build Success Status Email",
+                    body: "${currentBuild.fullDisplayName} has successfully passed security scan. Console Output:\n\n${currentBuild.rawBuild.getLog(1000)}",
+                    to: "deepak@webimor.com"
                 }
                 failure {
-                      mail to: "deepak@webimor.com",
-                      subject: "Build Failure Status Email",
-                      body: "Build log attached!"
+                    emailext subject: "Build Failure Status Email",
+                    body: "${currentBuild.fullDisplayName} has failed security scan. Console Output:\n\n${currentBuild.rawBuild.getLog(1000)}",
+                    to: "deepak@webimor.com"
                 }
             }
         }
