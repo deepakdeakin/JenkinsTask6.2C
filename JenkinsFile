@@ -14,12 +14,13 @@ pipeline {
             }
             post {
                 success {    
-                   emailext subject: "Build Success Status Email",
-                    body: "${currentBuild.fullDisplayName} has successfully built. Console Output:\n\n${currentBuild.rawBuild.getLog(1000)}",
-                    to: "deepak@webimor.com"
+                    mail to: "deepak@webimor.com",
+                    subject: "Build Success Status Email",
+                    body: "Build log attached!"
+
                 }
                 failure {
-                    mail to: "deepak@webimor.com",
+                   mail to: "deepak@webimor.com",
                    subject: "Build Failure Status Email",
                    body: "Build log attached!"
                 }
@@ -38,9 +39,10 @@ pipeline {
             }
             post {
                 success {
-                    emailext subject: "Build Success Status Email",
-                    body: "${currentBuild.fullDisplayName} has successfully built. Console Output:\n\n${currentBuild.rawBuild.getLog(1000)}",
-                    to: "deepak@webimor.com"
+                    mail to: "deepak@webimor.com",
+                    subject: "Build Success Status Email",
+                    body: "Build log attached!"
+
                 }
                 failure {
                       mail to: "deepak@webimor.com",
